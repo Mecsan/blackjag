@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+        }
+
+        .main {
+            min-height: 650px;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .in {
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 30%;
+            background-color: white;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 5px 5px 10px rgba(45, 147, 243, 0.521);
+            margin: 30px;
+        }
+
+
+
+        label {
+            position: relative;
+            top: -25px;
+            color: rgba(2, 2, 2, 0.452);
+            padding: 10px;
+            padding-left: 0%;
+            z-index: 1;
+            pointer-events: none;
+            transition: .5s;
+            margin-left: 10px;
+
+        }
+
+
+
+
+        input {
+            display: block;
+            border: none;
+            font-size: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 10px;
+            width: 95%;
+            padding-left: 0%;
+            padding-bottom: 0%;
+            border-bottom: 1px solid royalblue;
+            z-index: 2;
+        }
+
+        .field {
+            margin: 10px 0px;
+
+        }
+
+        input:focus {
+            outline: 0px;
+        }
+
+        .login,
+        .signin {
+            padding: 2em;
+            width: 100%;
+        }
+
+        .log,
+        .sign {
+            padding: 10px;
+            width: 50%;
+            background-color: royalblue;
+            color: white;
+            font-size: 1.2rem;
+            font-family: monospace;
+            border: none;
+            cursor: pointer;
+        }
+
+        .log {
+            background-color: white;
+            color: royalblue;
+        }
+
+        input[type="submit"] {
+            color: white;
+            background-color: royalblue;
+            border: none;
+            border-radius: 10px;
+            width: 50%;
+            font-size: 1.2rem;
+            font-family: monospace;
+            padding: 5px 10px;
+            margin: 10px;
+            cursor: pointer;
+
+        }
+
+        .forgot {
+            text-align: end;
+        }
+
+        a {
+            text-decoration: none;
+            color: royalblue;
+        }
+
+        .signin {
+            display: none;
+        }
+
+        body {
+            color: rgba(2, 2, 2, 0.452);
+        }
+
+        .si,
+        .lo {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media screen and (max-width:450px) {
+            .in {
+                width: 100%;
+            }
+
+            .si,
+            .lo {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: end;
+                font-size: 1rem;
+
+            }
+             
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <div class="in">
+            <button class="log">
+                Login
+            </button>
+            <button class="sign">
+                Signin
+            </button>
+            <div class="login">
+                <form>
+                    <div class="field">
+                        <input type="text" value="">
+                        <label>Username</label>
+                    </div>
+                    <div class="field">
+                        <input type="password" value="">
+                        <label>Password</label>
+                    </div>
+                    <div class="forgot">
+                        Forgot possword
+                        <a href="#">Click_here</a>
+                    </div>
+                    <input type="submit" value="Login">
+                    <div class="si">
+                        don't have account
+                        <a href="#" style="margin-left: 5px;" 
+                        onclick="fun_sign()"> Sign_in</a>
+                    </div>
+                </form>
+            </div>
+            <div class="signin">
+                <form>
+                    <div class="field">
+                        <input type="mail" value="">
+                        <label>mail</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" value="">
+                        <label>Username</label>
+                    </div>
+                    <div class="field">
+                        <input type="password" value="">
+                        <label>Password</label>
+                    </div>
+
+                    <input type="submit" value="Signin">
+                    <div class="lo">
+                        Already have account
+                        <a href="#" style="margin-left: 5px;" onclick="fun_log()"> Log in</a>
+                    </div>
+                </form>
+            </div>
+
+
+
+        </div>
+    </section>
+
+</body>
+<script>
+
+    let ar = document.getElementsByClassName('field');
+    for (let i = 0; i < ar.length; i++) {
+        let x = ar[i].firstElementChild;
+        let y = ar[i].lastElementChild;
+        x.addEventListener('focus', function () {
+            y.style.top = "-40px";
+            y.style.color = 'royalblue';
+            y.style.marginLeft = "5px";
+        })
+        x.addEventListener('blur', function () {
+            if (x.value != "") {
+                // console.log(y);
+                // console.log(x);
+                y.style.top = "-40px";
+                y.style.color = 'royalblue';
+                y.style.marginLeft = "5px";
+            }
+            else {
+                y.style.top = "-25px";
+                y.style.marginLeft = '10px';
+                y.style.color = 'rgba(2, 2, 2, 0.452)';
+            }
+        })
+    }
+    let sign = document.getElementsByClassName('sign');
+    sign = sign[0];
+    let log = document.getElementsByClassName('log');
+    log = log[0];
+    let signin = document.getElementsByClassName('signin');
+    let login = document.getElementsByClassName('login');
+    login = login[0];
+    signin = signin[0];
+    sign.addEventListener('click', fun_sign);
+    function fun_sign() {
+        log.style.color = "white";
+        log.style.backgroundColor = "royalblue";
+        sign.style.color = "royalblue";
+        sign.style.backgroundColor = "white";
+        signin.style.display = "block";
+        login.style.display = "none";
+    }
+    log.addEventListener('click', fun_log);
+
+    function fun_log() {
+        signin.style.display = "none";
+        login.style.display = "block";
+        log.style.color = "royalblue";
+        log.style.backgroundColor = "white";
+        sign.style.color = "white";
+        sign.style.backgroundColor = "royalblue";
+    }
+
+
+</script>
+
+</html>
