@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="play.css">
+</head>
+
+
+<body>
+    <div class="head">
+        <div class="button" onclick="see_nav()">#</div>
+        <div class="heading"><a href="play.html">Black Jack</a>
+        
+        </div>
+    </div>
+    <script>
+        function see_nav(){
+        see = document.getElementsByClassName('nav')[0];
+        but = document.getElementsByClassName('button')[0];
+        if(see.style.left=='0%'){
+            see.style.left='-200%';
+        but.innerText = '#';
+            return;
+        }
+        see.style.left='0%';
+        but.innerText = '*';
+    }
+    </script>
+
+
+
+     <div class="ma">
+         <div class="result"></div>
+         <div class="error"></div>
+         <button id="restart" onclick="restart()">Play Again</button>
+         
+        <div class="start" onclick="play(this)">Start game</div>
+        <div class="game">
+            <div class="content">
+                <div id="dealer">
+                    <p class="data1"></p>
+                </div>
+                <div id="player">
+                    <p class="data2"></p>
+                </div>
+            </div>
+            
+            <div id="b">
+                <button id="nxt">Next</button>
+                <button id="hit">Hit</button>
+                <button id="stand">Stand</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script src="play.js">
+    
+</script>
+
+</html>
